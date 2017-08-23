@@ -6,4 +6,18 @@
 
 test_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+squares = []
 
+not_squares = []
+
+test_array.each{|x|
+  mod = Math.sqrt( x)%1
+  if mod == 0
+    squares.push(x)
+  else
+    not_squares.push(x)
+  end
+}
+
+p "squares = #{squares}"
+p "not_squares = #{not_squares}"
