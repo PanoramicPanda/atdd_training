@@ -36,3 +36,7 @@ end
 When(/^I multiply more than two numbers$/) do
   @product = Calculator.new.multiply(2,5,5)
 end
+
+When(/^I multiply by a word it will fail with "([^"]*)"$/) do |errorstring|
+  expect {Calculator.new.multiply(50,"bob")}.to raise_error(errorstring)
+end

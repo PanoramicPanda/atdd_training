@@ -22,3 +22,9 @@ Feature: Division
   Scenario: Divide more than two numbers
     When I divide more than two numbers
     Then I get the quotient
+
+  Scenario: Divide by a word
+    When I divide by a word it will fail with "Cannot perform division with a non-number"
+
+  Scenario: Divide by zero
+    When I divide by zero it will fail with "Cannot divide by 0"

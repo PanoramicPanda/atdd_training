@@ -36,3 +36,11 @@ end
 When(/^I divide more than two numbers$/) do
   @quotient = Calculator.new.divide(100,2,5)
 end
+
+When(/^I divide by a word it will fail with "([^"]*)"$/) do |errorstring|
+  expect {Calculator.new.divide(50,"bob")}.to raise_error(errorstring)
+end
+
+When(/^I divide by zero it will fail with "([^"]*)"$/) do |errorstring|
+  expect {Calculator.new.divide(50,0)}.to raise_error(errorstring)
+end

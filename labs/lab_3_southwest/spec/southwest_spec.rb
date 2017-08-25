@@ -1,13 +1,8 @@
-require 'rspec'
-require 'watir-webdriver'
-#require 'main_page'
-
-#include PageObject::PageFactory
+require_relative '../../../labs/lab_3_southwest/support/hooks'
 
 describe 'Southwest Lab' do
   before {@browser = Watir::Browser.new(:chrome)}
-  before {@browser.goto('https://www.southwest.com')}
-  #visit_page MainPage
+  #before {@browser.goto('https://www.southwest.com')}
   describe 'flight search' do
     it 'returns the flight time correctly' do
       @browser.text_field(:id => 'air-city-departure').set 'Denver'
@@ -21,11 +16,15 @@ describe 'Southwest Lab' do
     end
     it 'gets the correct locations using the airport codes' do
       #@browser.text_field(departure).set 'LAX'
-      @browser.text_field(:id => 'air-city-departure').set 'LAX'
-      @browser.text_field(:id => 'air-city-arrival').set 'SFO'
-      @browser.button(:id => 'jb-booking-form-submit-button').click
-      expect(@browser.text_field(:id => 'originAirport_displayed').value).to include "Los Angeles, CA"
-      expect(@browser.text_field(:id => 'destinationAirport_displayed').value).to include "San Francisco, CA"
+      #@browser.text_field(:id => 'air-city-departure').set 'LAX'
+      #@browser.text_field(:id => 'air-city-arrival').set 'SFO'
+      #@browser.button(:id => 'jb-booking-form-submit-button').click
+      visit(MainPage)
+      on(MainPage).departure = 'LAX'
+      on(MainPage).arrival = 'SFO'
+      on(MainPage).search
+      #expect(@browser.text_field(:id => 'originAirport_displayed').value).to include "Los Angeles, CA"
+      #expect(@browser.text_field(:id => 'destinationAirport_displayed').value).to include "San Francisco, CA"
     end
     it 'has a Business Select price for all flights' do
       @browser.text_field(:id => 'air-city-departure').set 'Denver'

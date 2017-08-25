@@ -22,3 +22,6 @@ Feature: Multiplication
   Scenario: Multiply more than two numbers
     When I multiply more than two numbers
     Then I get the product
+
+  Scenario: Multiply by a word
+    When I multiply by a word it will fail with "Cannot perform multiplication with a non-number"

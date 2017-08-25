@@ -18,3 +18,6 @@ Feature: Subtraction
   Scenario: Subtracting more than two numbers
     When I subtract more than two numbers
     Then I get the difference
+
+  Scenario: Subtract with a word
+    When I subtract a word it will fail with "Cannot perform subtraction with a non-number"

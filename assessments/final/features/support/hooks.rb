@@ -3,6 +3,6 @@ Before do
   @browser.goto('https://www.budget.com')
 end
 
-Before do
+After do
   @browser.close
 end

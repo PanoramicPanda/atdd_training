@@ -28,3 +28,7 @@ end
 When(/^I subtract more than two numbers$/) do
   @difference = Calculator.new.subtract 49, 5, 10, 15
 end
+
+When(/^I subtract a word it will fail with "([^"]*)"$/) do |errorstring|
+  expect {Calculator.new.subtract(50,"bob")}.to raise_error(errorstring)
+end
